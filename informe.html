@@ -1,0 +1,869 @@
+
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Details - Proveedores</title>
+
+    
+    
+        <link href="/css/main.css" rel="stylesheet" />
+        <link href="/css/bootstrap.min.css" rel="stylesheet" />
+        <link href="/css/site.css" rel="stylesheet" />
+        <link href="/css/fullcalendar.css" rel="stylesheet" />
+        <link href="/css/introjs.css" rel="stylesheet" />
+        <link href="/css/jquery.datetimepicker.css" rel="stylesheet" />
+        <link href="/css/jquery.steps.css" rel="stylesheet" />
+        <link href="/css/morris-0.4.3.min.css" rel="stylesheet" />
+        <link href="/css/toastr.min.css" rel="stylesheet" />
+        <link href="/css/btn-group-radio.css" rel="stylesheet" />
+        <link href="/css/bootstrap-datetimepicker.css" rel="stylesheet" />
+        <link href="/css/style.css" rel="stylesheet" />
+        <link href="/css/login.css" rel="stylesheet" />
+        <link href="/css/fileupload.css" rel="stylesheet" />
+        <link href="/css/Chart.css" rel="stylesheet" />
+        <link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.6.1/css/buttons.dataTables.min.css" />
+
+        <link href="https://cdn.datatables.net/rowgroup/1.1.1/css/rowGroup.dataTables.min.css" rel="stylesheet" />
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="theme-color" content="#ffffff">
+</head>
+<body>
+        <div id="wrapper">
+            <nav class="navbar-default navbar-static-side" role="navigation">
+                <div class="sidebar-collapse">
+                    
+    <ul class="nav" id="side-menu">
+        <li class="nav-header">
+            <div class="dropdown profile-element text-center">
+                <a href="/">
+                    <div class="nav-header-back" style="background: url('../../images/logos/logo-austral (1).png'); background-size: cover; height: 150px; width: 100%; margin-top: 20px; margin-bottom: 20px;"></div>
+                </a>
+                <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                    <span class="clear">
+                        <span class="block m-t-xs">
+                            <strong class="font-bold">
+                                <i class="fa fa-user" aria-hidden="true"></i> <b class="caret"></b>
+                            </strong>
+                        </span>
+                    </span>
+                </a>
+                <ul class="dropdown-menu animated fadeInUp m-t-xs">
+                    <li>
+                        <a title="Manage" href="/Identity/Account/Manage">Cambiar contraseña</a>
+                    </li>
+                    <li>
+                        <a href="/Home/Logout">Salir</a>
+                    </li>
+                </ul>
+            </div>
+        </li>
+
+            <li class="dropdown">
+        <a href="#" data-toggle="collapse" data-target="#sistemas" data-parent="#sidenav01" class="collapsed">
+            <i class="fas fa-cogs"></i><span class="nav-label"> Sistema Admin <span class="caret pull-right"></span></span>
+        </a>
+        <div class="collapse" id="sistemas" style="height: 0px;">
+            <ul class="nav nav-list">
+                    <li style="padding-left:15px;">
+                        <a href="/Usuarios">
+                            <i style="font-family:Arial;font-style:normal;">Usuarios</i>
+                            <span class="nav-label"></span>
+                        </a>
+                    </li>
+                    <li style="padding-left:15px;">
+                        <a href="/Sistemas">
+                            <i style="font-family:Arial;font-style:normal;">Sistemas</i>
+                            <span class="nav-label"></span>
+                        </a>
+                    </li>
+                    <li style="padding-left:15px;">
+                        <a href="/Opciones">
+                            <i style="font-family:Arial;font-style:normal;">Opciones</i>
+                            <span class="nav-label"></span>
+                        </a>
+                    </li>
+                    <li style="padding-left:15px;">
+                        <a href="/Perfiles">
+                            <i style="font-family:Arial;font-style:normal;">Perfiles</i>
+                            <span class="nav-label"></span>
+                        </a>
+                    </li>
+                    <li style="padding-left:15px;">
+                        <a href="/OpcionesPorPerfiles">
+                            <i style="font-family:Arial;font-style:normal;">Opciones Por Perfiles</i>
+                            <span class="nav-label"></span>
+                        </a>
+                    </li>
+                    <li style="padding-left:15px;">
+                        <a href="/PerfilesPorUsuario">
+                            <i style="font-family:Arial;font-style:normal;">Perfiles Por Usuario</i>
+                            <span class="nav-label"></span>
+                        </a>
+                    </li>
+                    <li style="padding-left:15px;">
+                        <a href="/Anuncio">
+                            <i style="font-family:Arial;font-style:normal;">Anuncios</i>
+                            <span class="nav-label"></span>
+                        </a>
+                    </li>
+                    <li style="padding-left:15px;">
+                        <a href="/Sistemas/Reporte">
+                            <i style="font-family:Arial;font-style:normal;">Log Sesion</i>
+                            <span class="nav-label"></span>
+                        </a>
+                    </li>
+            </ul>
+        </div>
+    </li>
+    <li class="dropdown">
+        <a href="#" data-toggle="collapse" data-target="#gestion" data-parent="#sidenav01" class="collapsed">
+            <i class="fas fa-building"></i><span class="nav-label"> Gesti&#xF3;n Proveedores <span class="caret pull-right"></span></span>
+        </a>
+        <div class="collapse" id="gestion" style="height: 0px;">
+            <ul class="nav nav-list">
+                    <li style="padding-left:15px;">
+                        <a href="/Proveedores/GestionProveedoresComprador">
+                            <i style="font-family:Arial;font-style:normal;">Evaluaci&#xF3;n C</i>
+                            <span class="nav-label"></span>
+                        </a>
+                    </li>
+                    <li style="padding-left:15px;">
+                        <a href="/Proveedores/consultaProveedores">
+                            <i style="font-family:Arial;font-style:normal;">Empresas Registradas</i>
+                            <span class="nav-label"></span>
+                        </a>
+                    </li>
+            </ul>
+        </div>
+    </li>
+    <li class="dropdown">
+        <a href="#" data-toggle="collapse" data-target="#alcance" data-parent="#sidenav01" class="collapsed">
+            <i class="fas fa-file-upload"></i><span class="nav-label"> Alcance Tecnico <span class="caret pull-right"></span></span>
+        </a>
+        <div class="collapse" id="alcance" style="height: 0px;">
+            <ul class="nav nav-list">
+                    <li style="padding-left:15px;">
+                        <a href="/AlcanceTecnico/IndexAdmini">
+                            <i style="font-family:Arial;font-style:normal;">Aprobaci&#xF3;n de Alcance t&#xE9;cnico</i>
+                            <span class="nav-label"></span>
+                        </a>
+                    </li>
+                    <li style="padding-left:15px;">
+                        <a href="/AlcanceTecnico/IndexAdminiConsulta">
+                            <i style="font-family:Arial;font-style:normal;">Consulta de Alcances T&#xE9;cnicos</i>
+                            <span class="nav-label"></span>
+                        </a>
+                    </li>
+            </ul>
+        </div>
+    </li>
+    <li class="dropdown">
+        <a href="#" data-toggle="collapse" data-target="#configGenerales" data-parent="#sidenav01" class="collapsed">
+            <i class="fas fa-tools"></i><span class="nav-label"> Configuraciones <span class="caret pull-right"></span></span>
+        </a>
+        <div class="collapse" id="configGenerales" style="height: 0px;">
+            <ul class="nav nav-list">
+                    <li style="padding-left:15px;">
+                        <a href="/SedesGeneral">
+                            <i style="font-family:Arial;font-style:normal;">Sedes</i>
+                            <span class="nav-label"></span>
+                        </a>
+                    </li>
+                    <li style="padding-left:15px;">
+                        <a href="/Areas">
+                            <i style="font-family:Arial;font-style:normal;">Areas</i>
+                            <span class="nav-label"></span>
+                        </a>
+                    </li>
+                    <li style="padding-left:15px;">
+                        <a href="/PuestoEmail">
+                            <i style="font-family:Arial;font-style:normal;">Notificaciones por puestos</i>
+                            <span class="nav-label"></span>
+                        </a>
+                    </li>
+                    <li style="padding-left:15px;">
+                        <a href="/ResponsableEmail">
+                            <i style="font-family:Arial;font-style:normal;">Responsable</i>
+                            <span class="nav-label"></span>
+                        </a>
+                    </li>
+            </ul>
+        </div>
+    </li>
+    <li class="dropdown">
+        <a href="#" data-toggle="collapse" data-target="#cotizaciones" data-parent="#sidenav01" class="collapsed">
+            <i class="fas fa-file-invoice-dollar"></i><span class="nav-label"> Cotizaci&#xF3;n de Materiales <span class="caret pull-right"></span></span>
+        </a>
+        <div class="collapse" id="cotizaciones" style="height: 0px;">
+            <ul class="nav nav-list">
+                    <li style="padding-left:15px;">
+                        <a href="/Cotizaciones">
+                            <i style="font-family:Arial;font-style:normal;">Listado de Solpeds</i>
+                            <span class="nav-label"></span>
+                        </a>
+                    </li>
+                    <li style="padding-left:15px;">
+                        <a href="/Cotizaciones/BandejaCotizaciones">
+                            <i style="font-family:Arial;font-style:normal;">Bandeja de Licitaciones</i>
+                            <span class="nav-label"></span>
+                        </a>
+                    </li>
+            </ul>
+        </div>
+    </li>
+    <li class="dropdown">
+        <a href="#" data-toggle="collapse" data-target="#pedidos" data-parent="#sidenav01" class="collapsed">
+            <i class="fas fa-file-alt"></i><span class="nav-label"> Pedidos <span class="caret pull-right"></span></span>
+        </a>
+        <div class="collapse" id="pedidos" style="height: 0px;">
+            <ul class="nav nav-list">
+                    <li style="padding-left:15px;">
+                        <a href="/Pedidos/IndexAdministrador">
+                            <i style="font-family:Arial;font-style:normal;">Historial Pedidos</i>
+                            <span class="nav-label"></span>
+                        </a>
+                    </li>
+            </ul>
+        </div>
+    </li>
+    <li class="dropdown">
+        <a href="#" data-toggle="collapse" data-target="#informe" data-parent="#sidenav01" class="collapsed">
+            <i class="fab fa-wpforms"></i><span class="nav-label"> Informe de trabajo <span class="caret pull-right"></span></span>
+        </a>
+        <div class="collapse" id="informe" style="height: 0px;">
+            <ul class="nav nav-list">
+                    <li style="padding-left:15px;">
+                        <a href="/InformeTecnico/IndexAdmini">
+                            <i style="font-family:Arial;font-style:normal;">Aprobaci&#xF3;n de Informe de trabajo</i>
+                            <span class="nav-label"></span>
+                        </a>
+                    </li>
+                    <li style="padding-left:15px;">
+                        <a href="/InformeTecnico/IndexAdminiConsulta">
+                            <i style="font-family:Arial;font-style:normal;">Consulta de Informes de trabajo</i>
+                            <span class="nav-label"></span>
+                        </a>
+                    </li>
+            </ul>
+        </div>
+    </li>
+    <li class="dropdown">
+        <a href="#" data-toggle="collapse" data-target="#facturas" data-parent="#sidenav01" class="collapsed">
+            <i class="fas fa-file-invoice-dollar"></i><span class="nav-label"> Facturas <span class="caret pull-right"></span></span>
+        </a>
+        <div class="collapse" id="facturas" style="height: 0px;">
+            <ul class="nav nav-list">
+                    <li style="padding-left:15px;">
+                        <a href="/Facturas/IndexAdmini">
+                            <i style="font-family:Arial;font-style:normal;">Procesamiento de facturas</i>
+                            <span class="nav-label"></span>
+                        </a>
+                    </li>
+                    <li style="padding-left:15px;">
+                        <a href="/ComprobantePago/IndexAdministrador">
+                            <i style="font-family:Arial;font-style:normal;">Situaci&#xF3;n de Pago</i>
+                            <span class="nav-label"></span>
+                        </a>
+                    </li>
+                    <li style="padding-left:15px;">
+                        <a href="/Facturas/IndexAdministrador">
+                            <i style="font-family:Arial;font-style:normal;">Consulta de Facturas</i>
+                            <span class="nav-label"></span>
+                        </a>
+                    </li>
+                    <li style="padding-left:15px;">
+                        <a href="/Pesca/IndexAdministrador">
+                            <i style="font-family:Arial;font-style:normal;">Liquidaci&#xF3;n de Pesca - Admin</i>
+                            <span class="nav-label"></span>
+                        </a>
+                    </li>
+                    <li style="padding-left:15px;">
+                        <a href="/ComprobanteFEP/IndexAdministrador">
+                            <i style="font-family:Arial;font-style:normal;">Comprobantes FEP - Admin</i>
+                            <span class="nav-label"></span>
+                        </a>
+                    </li>
+            </ul>
+        </div>
+    </li>
+    <li class="dropdown">
+        <a href="#" data-toggle="collapse" data-target="#limpieza" data-parent="#sidenav01" class="collapsed">
+            <i class="fa fa-ship"></i><span class="nav-label"> Limpieza Embarcaciones <span class="caret pull-right"></span></span>
+        </a>
+        <div class="collapse" id="limpieza" style="height: 0px;">
+            <ul class="nav nav-list">
+                    <li style="padding-left:15px;">
+                        <a href="/Bodegas">
+                            <i style="font-family:Arial;font-style:normal;">Maestro Bodegas</i>
+                            <span class="nav-label"></span>
+                        </a>
+                    </li>
+                    <li style="padding-left:15px;">
+                        <a href="/bodeInformes">
+                            <i style="font-family:Arial;font-style:normal;">Ver solicitudes</i>
+                            <span class="nav-label"></span>
+                        </a>
+                    </li>
+                    <li style="padding-left:15px;">
+                        <a href="/bodeCargos">
+                            <i style="font-family:Arial;font-style:normal;">Cargos</i>
+                            <span class="nav-label"></span>
+                        </a>
+                    </li>
+                    <li style="padding-left:15px;">
+                        <a href="/bodeCentros">
+                            <i style="font-family:Arial;font-style:normal;">Centros</i>
+                            <span class="nav-label"></span>
+                        </a>
+                    </li>
+                    <li style="padding-left:15px;">
+                        <a href="/bodeEmbarcaciones">
+                            <i style="font-family:Arial;font-style:normal;">Embarcaciones</i>
+                            <span class="nav-label"></span>
+                        </a>
+                    </li>
+                    <li style="padding-left:15px;">
+                        <a href="/bodeProveedores">
+                            <i style="font-family:Arial;font-style:normal;">Proveedores</i>
+                            <span class="nav-label"></span>
+                        </a>
+                    </li>
+                    <li style="padding-left:15px;">
+                        <a href="/bodeServicios">
+                            <i style="font-family:Arial;font-style:normal;">Servicios</i>
+                            <span class="nav-label"></span>
+                        </a>
+                    </li>
+            </ul>
+        </div>
+    </li>
+    <li class="dropdown">
+        <a href="#" data-toggle="collapse" data-target="#ssoOpciones" data-parent="#sidenav01" class="collapsed">
+            <i class="fa fa-ruler"></i><span class="nav-label"> SSO <span class="caret pull-right"></span></span>
+        </a>
+        <div class="collapse" id="ssoOpciones" style="height: 0px;">
+            <ul class="nav nav-list">
+                    <li style="padding-left:15px;">
+                        <a href="/ssoBandeja">
+                            <i style="font-family:Arial;font-style:normal;">Bandeja de Pendientes</i>
+                            <span class="nav-label"></span>
+                        </a>
+                    </li>
+                    <li style="padding-left:15px;">
+                        <a href="/ssoConfig/Induccion">
+                            <i style="font-family:Arial;font-style:normal;">Inducci&#xF3;n</i>
+                            <span class="nav-label"></span>
+                        </a>
+                    </li>
+                    <li style="padding-left:15px;">
+                        <a href="/ssoConfig/IndexEmpresa">
+                            <i style="font-family:Arial;font-style:normal;">Empresas</i>
+                            <span class="nav-label"></span>
+                        </a>
+                    </li>
+                    <li style="padding-left:15px;">
+                        <a href="/ssoPedidos">
+                            <i style="font-family:Arial;font-style:normal;">Pedidos</i>
+                            <span class="nav-label"></span>
+                        </a>
+                    </li>
+            </ul>
+        </div>
+    </li>
+    <li class="dropdown">
+        <a href="#" data-toggle="collapse" data-target="#Trnsportes" data-parent="#sidenav01" class="collapsed">
+            <i class="fab fa-wpforms"></i><span class="nav-label"> Transporte Personal <span class="caret pull-right"></span></span>
+        </a>
+        <div class="collapse" id="Trnsportes" style="height: 0px;">
+            <ul class="nav nav-list">
+                    <li style="padding-left:15px;">
+                        <a href="/ConfigPersonal">
+                            <i style="font-family:Arial;font-style:normal;">Configuraci&#xF3;n Transporte Personal</i>
+                            <span class="nav-label"></span>
+                        </a>
+                    </li>
+                    <li style="padding-left:15px;">
+                        <a href="/Rutas">
+                            <i style="font-family:Arial;font-style:normal;">Rutas</i>
+                            <span class="nav-label"></span>
+                        </a>
+                    </li>
+                    <li style="padding-left:15px;">
+                        <a href="/Transportes/Aprobacion">
+                            <i style="font-family:Arial;font-style:normal;">Transporte de Personal - Aprobaci&#xF3;n</i>
+                            <span class="nav-label"></span>
+                        </a>
+                    </li>
+            </ul>
+        </div>
+    </li>
+    <li class="dropdown">
+        <a href="#" data-toggle="collapse" data-target="#sistemaTransportePPTT" data-parent="#sidenav01" class="collapsed">
+            <i class="fab fa-wpforms"></i><span class="nav-label"> Transporte PPTT CHI <span class="caret pull-right"></span></span>
+        </a>
+        <div class="collapse" id="sistemaTransportePPTT" style="height: 0px;">
+            <ul class="nav nav-list">
+                    <li style="padding-left:15px;">
+                        <a href="/ConfigPPTT">
+                            <i style="font-family:Arial;font-style:normal;">Configuraci&#xF3;n Transporte PPTT</i>
+                            <span class="nav-label"></span>
+                        </a>
+                    </li>
+                    <li style="padding-left:15px;">
+                        <a href="/TransportePPTT">
+                            <i style="font-family:Arial;font-style:normal;">Transporte interno de PPTT CHI</i>
+                            <span class="nav-label"></span>
+                        </a>
+                    </li>
+            </ul>
+        </div>
+    </li>
+    <li class="dropdown">
+        <a href="#" data-toggle="collapse" data-target="#reclamos" data-parent="#sidenav01" class="collapsed">
+            <i class="fas fa-file-upload"></i><span class="nav-label"> Reclamos <span class="caret pull-right"></span></span>
+        </a>
+        <div class="collapse" id="reclamos" style="height: 0px;">
+            <ul class="nav nav-list">
+                    <li style="padding-left:15px;">
+                        <a href="/TipoReclamoAustral">
+                            <i style="font-family:Arial;font-style:normal;">Tipo Reclamo Austral</i>
+                            <span class="nav-label"></span>
+                        </a>
+                    </li>
+                    <li style="padding-left:15px;">
+                        <a href="/TipoReclamoProveedor">
+                            <i style="font-family:Arial;font-style:normal;">Tipo Reclamo Proveedor</i>
+                            <span class="nav-label"></span>
+                        </a>
+                    </li>
+                    <li style="padding-left:15px;">
+                        <a href="/ReclamosAustral">
+                            <i style="font-family:Arial;font-style:normal;">Nuevo reclamo </i>
+                            <span class="nav-label"></span>
+                        </a>
+                    </li>
+                    <li style="padding-left:15px;">
+                        <a href="/Reclamos/IndexInterno">
+                            <i style="font-family:Arial;font-style:normal;">Reclamos recibidos</i>
+                            <span class="nav-label"></span>
+                        </a>
+                    </li>
+                    <li style="padding-left:15px;">
+                        <a href="/Reclamos/Historial">
+                            <i style="font-family:Arial;font-style:normal;">Historial</i>
+                            <span class="nav-label"></span>
+                        </a>
+                    </li>
+            </ul>
+        </div>
+    </li>
+
+
+    </ul>
+
+                </div>
+            </nav>
+            <div id="page-wrapper" class="gray-bg dashbard-1">
+                <div class="row border-bottom">
+                    <nav class="navbar navbar-static-top" role="navigation" style="margin-bottom: 0">
+                        <div class="navbar-header">
+                            <a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="#"><i class="fa fa-bars"></i> </a>
+                        </div>
+                        <form method="post" id="logoutForm" class="navbar-right" action="/Identity/Account/Logout?returnUrl=%2F">
+                            <ul class="nav navbar-top-links navbar-right">
+                                <li class="dropdown">
+                                    <ul class="dropdown-menu dropdown-alerts">
+                                        <li>
+                                            <div class="text-center link-block" style="font-weight:bolder;">
+                                                <a href="/app/alerts"><span class="nav-label">Ver todas las alertas </span><i class="fa fa-angle-double-right"> </i></a>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <span class="m-r-sm text-muted welcome-message">
+                                        Bienvenido Bruno S&#xE1;nchez Escajadillo al Portal Web de proveedores
+                                    </span>
+                                </li>
+
+                                <li data-step="7" data-position="bottom" data-intro="Icono de Soporte Técnico">
+                                    <a class="right-sidebar-toggle">
+                                        <i class="fa fa-question-circle fa-2x" style="color:#337ab7;"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                        <input name="__RequestVerificationToken" type="hidden" value="CfDJ8B7r4i89HmtJp9mhn0ExJflqX2t4331l3E3bVXw4gwI6j4sgB-XhORebS0sK5Cmc7YGem__ZcHh4wkK6Nzr-23hkx5Vf1nBGgTAlHCPL6TPxgD1jT_yxNNOfWdbT6P45XKBzUXzWyOeYDqVxJS4IgHfKfEdJdVBND1iXxCeZcuDCi9Lcsq39P8GHmWa1n_DXZg" /></form>
+                    </nav>
+                </div>
+                <div class="wrapper wrapper-content animated fadeInRight">
+                    <main role="main" class="pb-3">
+                        
+
+<!-- Cabecera -Filtro    -->
+<div class="row">
+    <div class="col-lg-12">
+        <form class="form-horizontal form-border col-sm-12" method="post" accept-charset="utf-8" action="/InformeTecnico/Details">
+            
+            <div style="display:none;"><input type="hidden" name="_method" value="POST" /></div>    <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>INFORME DE TRABAJO #IT200094</h5>
+                    <div class="ibox-tools">
+                        <a class="collapse-link">
+                            <i class="fa fa-chevron-up"></i>
+                        </a>
+                        <a class="close-link">
+                            <i class="fa fa-times"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        <input name="__RequestVerificationToken" type="hidden" value="CfDJ8B7r4i89HmtJp9mhn0ExJflqX2t4331l3E3bVXw4gwI6j4sgB-XhORebS0sK5Cmc7YGem__ZcHh4wkK6Nzr-23hkx5Vf1nBGgTAlHCPL6TPxgD1jT_yxNNOfWdbT6P45XKBzUXzWyOeYDqVxJS4IgHfKfEdJdVBND1iXxCeZcuDCi9Lcsq39P8GHmWa1n_DXZg" /></form>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-10 col-md-offset-1">
+        <div class="col-md-12" id="element">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <div id="boletaEmpleado" class="table-responsive">
+                        <table id="CabezeraBoletaTable" class="table table-bordered table-hover table-condensed" cellspacing="0" style="font-size:small">
+                            <tr>
+                                <td class="text-left active" colspan="1"><b><p style="margin-bottom: 5px;"><label style="font-size:medium">&nbsp;&nbsp;&nbsp;METALPROTEC S.A.C.</label></p></b></td>
+                                <td class="text-right active" colspan="1"><b><p style="margin-bottom: 5px;"><label style="font-size:medium">N° IT200094&nbsp;&nbsp;&nbsp;</label></p></b></td>
+                            </tr>
+                            <tr>
+                                <td colspan="2" class="text-center active text-uppercase"><label><b>INFORME TECNICO DE MANTENIMIENTO  DE  DESGASIFICADO Y LIMPIEZA TQ COMB.</b></label></td>
+                            </tr>
+                            <tr>
+                                <td colspan="2" class="text-left active"><label><b>&nbsp;&nbsp;&nbsp;1. ESPECIFICACIONES DEL EQUIPO</b></label></td>
+                            </tr>
+                            <tr>
+                                <td class="col-md-4 text-left "><label>&nbsp;&nbsp;&nbsp;ODM:</label></td>
+                                <td class="col-md-8 text-left "><label>5002944 - ADQ. E INSTALACION SISTEMA DESCARGA</label></td>
+                            </tr>
+                            <tr>
+                                <td class="col-md-4 text-left "><label>&nbsp;&nbsp;&nbsp;OPERACIÓN:</label></td>
+                                <td class="col-md-8 text-left "><label>0080 - DESGASIFICADO Y LIMPIEZA TQ COMB.</label></td>
+                            </tr>
+                            <tr>
+                                <td class="col-md-4 text-left "><label>&nbsp;&nbsp;&nbsp;EMBARCACIÓN:</label></td>
+                                <td class="col-md-8 text-left "><label>Malena</label></td>
+                            </tr>
+                            <tr>
+                                <td class="col-md-4 text-left "><label>&nbsp;&nbsp;&nbsp;CLASE ODM:</label></td>
+                                <td class="col-md-8 text-left "><label>OM05</label></td>
+                            </tr>
+                            <tr>
+                                <td class="col-md-4 text-left "><label>&nbsp;&nbsp;&nbsp;TEMPORADA:</label></td>
+                                <td class="col-md-8 text-left "><label>VEDA_II</label></td>
+                            </tr>
+                            <tr>
+                                <td class="col-md-4 text-left "><label>&nbsp;&nbsp;&nbsp;EMPLAZAMIENTO:</label></td>
+                                <td class="col-md-8 text-left "><label>Cascos y estructuras</label></td>
+                            </tr>
+                            <tr>
+                                <td class="col-md-4 text-left "><label>&nbsp;&nbsp;&nbsp;EQUIPO:</label></td>
+                                <td class="col-md-8 text-left "><label>10007904 - CASCO DE EMBARCACION</label></td>
+                            </tr>
+                            <tr>
+                                <td class="col-md-4 text-left "><label>&nbsp;&nbsp;&nbsp;PUERTO:</label></td>
+                                <td class="col-md-8 text-left "><label>Coishco</label></td>
+                            </tr>
+                            <tr>
+                                <td class="col-md-4 text-left "><label>&nbsp;&nbsp;&nbsp;SOLPED:</label></td>
+                                <td class="col-md-8 text-left "><label>0030027762</label></td>
+                            </tr>
+                            <tr>
+                                <td class="col-md-4 text-left "><label>&nbsp;&nbsp;&nbsp;POSICIÓN:</label></td>
+                                <td class="col-md-8 text-left "><label>00010</label></td>
+                            </tr>
+                            <tr>
+                                <td class="col-md-4 text-left "><label>&nbsp;&nbsp;&nbsp;PEDIDO:</label></td>
+                                <td class="col-md-8 text-left "><label>0070042238</label></td>
+                            </tr>
+                            <tr>
+                                <td class="col-md-4 text-left "><label>&nbsp;&nbsp;&nbsp;SUPERVISOR:</label></td>
+                                <td class="col-md-8 text-left "><label>Wilhelm Yomona</label></td>
+                            </tr>
+                            <tr>
+                                <td colspan="2" class="text-left active"><label><b>&nbsp;&nbsp;&nbsp;2. ANTECEDENTES</b></label></td>
+                            </tr>
+                            <tr>
+                                <td colspan="2"><label style="margin-left: 10px;">No se cambio equipo</label></td>
+                            </tr>
+                            <tr>
+                                <td colspan="2">
+                                        <div class="col-md-3">
+                                            <img src="/documents/Informes/4b039aab-8a1b-4980-a2a2-b8ccf1c625a2.jpg" style="width:100px;max-width: 100%; height: auto;" />
+                                        </div>
+                                                                            <div class="col-md-3">
+                                            <img src="/documents/Informes/a52f668c-f3fc-43d8-b32d-64ac96fbaba7.jpg" style="width:100px;max-width: 100%; height: auto;" />
+                                        </div>
+                                                                            <div class="col-md-3">
+                                            <img src="/documents/Informes/a2f9b111-e6fa-410c-9616-182c1e368040.jpg" style="width:100px;max-width: 100%; height: auto;" />
+                                        </div>
+                                                                            <div class="col-md-3">
+                                            <img src="/documents/Informes/ac26a4cc-1c0a-4756-b438-c58305ba57b0.jpg" style="width:100px;max-width: 100%; height: auto;" />
+                                        </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="2" class="text-left active"><label><b>&nbsp;&nbsp;&nbsp;3. TRABAJOS REALIZADOS</b></label></td>
+                            </tr>
+                            <tr>
+                                <td class="col-md-4"><label>&nbsp;&nbsp;&nbsp;Fecha y hora de inicio del trabajo:</label></td>
+                                <td class="col-md-9"><label>5/06/2020  08:00</label></td>
+                            </tr>
+                            <tr>
+                                <td class="col-md-3"><label>&nbsp;&nbsp;&nbsp;Fecha y hora de fin del trabajo:</label></td>
+                                <td class="col-md-9"><label>10/06/2020 22:00</label></td>
+                            </tr>
+                            <tr>
+                                <td colspan="2"><label style="margin-left: 10px;">-&#x9;Desmontaje de tapas, desgasificacion, evacuaci&#xF3;n y la limpieza de 02 tanques de petr&#xF3;leo ubicados en popa (10,000 gal) se realiz&#xF3; mediante el lavado del interior del tanque con la aplicaci&#xF3;n de detergente para retirar contaminantes adheridos sobre la superficie y rastros de petr&#xF3;leo de la superficie, con el posterior enjuague y secado del &#xE1;rea. </label></td>
+                            </tr>
+                            <tr>
+                                <td colspan="2"><label style="margin-left: 10px;">No se cambio equipo</label></td>
+                            </tr>
+
+                            <tr>
+                                <td colspan="2">
+                                        <div class="col-md-3">
+                                            <img src="/documents/Informes/e37fce74-ac2c-4822-a48b-7f3b2ad2a8bd.jpg" style="width:100px;max-width: 100%; height: auto;" />
+                                        </div>
+                                                                            <div class="col-md-3">
+                                            <img src="/documents/Informes/02ecfef3-625e-4481-b98d-ec97935fbf4c.jpg" style="width:100px;max-width: 100%; height: auto;" />
+                                        </div>
+                                                                            <div class="col-md-3">
+                                            <img src="/documents/Informes/951cb354-1543-4757-91b1-9609353c85a0.jpg" style="width:100px;max-width: 100%; height: auto;" />
+                                        </div>
+                                                                            <div class="col-md-3">
+                                            <img src="/documents/Informes/c0e5d219-024f-47bf-9b53-bae27e534b81.jpg" style="width:100px;max-width: 100%; height: auto;" />
+                                        </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="2" class="text-left active"><label><b>&nbsp;&nbsp;&nbsp;SOLO PARA CORRECTIVOS INDICAR:</b></label></td>
+                            </tr>
+                            <tr>
+                                <td colspan="2"><label style="margin-left: 10px;"></label></td>
+                            </tr>
+                            <tr>
+                                <td colspan="2"><label style="margin-left: 10px;"></label></td>
+                            </tr>
+                            <tr>
+                                <td colspan="2"><label style="margin-left: 10px;"></label></td>
+                            </tr>
+                            <tr>
+                                <td colspan="2" class="text-left active"><label><b>&nbsp;&nbsp;&nbsp;4. CAMBIOS REALIZADOS</b></label></td>
+                            </tr>
+                            <tr>
+                                <td colspan="2"><label style="margin-left: 10px;">No se cambio ning&#xFA;n componente</label></td>
+                            </tr>
+                            <tr>
+                                <td colspan="2">
+                                        <div class="col-md-3">
+                                            <img src="/documents/Informes/7a0646d5-a7d6-4e15-83dd-7c5472af29f7.jpg" style="width:100px;max-width: 100%; height: auto;" />
+                                        </div>
+                                                                            <div class="col-md-3">
+                                            <img src="/documents/Informes/20d13a4a-309e-40fe-af26-add780d87ea7.jpg" style="width:100px;max-width: 100%; height: auto;" />
+                                        </div>
+                                                                            <div class="col-md-3">
+                                            <img src="/documents/Informes/198cc369-679d-4c42-8ae9-fd36a075c68d.jpg" style="width:100px;max-width: 100%; height: auto;" />
+                                        </div>
+                                                                            <div class="col-md-3">
+                                            <img src="/documents/Informes/515af713-5fec-40c0-b207-bee41ffac920.jpg" style="width:100px;max-width: 100%; height: auto;" />
+                                        </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="2" class="text-left active"><label><b>&nbsp;&nbsp;&nbsp;5. PARAMETRO DE TRABAJO</b></label></td>
+                            </tr>
+                            <tr>
+                                <td colspan="2"><label style="margin-left: 10px;">Desgasificacion y limpieza de dos tanques de petroleo ubicados en popa</label></td>
+                            </tr>
+
+                            <tr>
+                                <td colspan="2" class="text-left active"><h4><b>&nbsp;&nbsp;&nbsp;6. ARCHIVOS ADJUNTOS</b></h4></td>
+                            </tr>
+                            <tr>
+                                <td colspan="2">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="2" class="text-left active"><label><b>&nbsp;&nbsp;&nbsp;7. RECOMENDACIONES</b></label></td>
+                            </tr>
+                            <tr>
+                                <td colspan="2"><label style="margin-left: 10px;"></label></td>
+                            </tr>
+                            <tr>
+                                <td colspan="2" class="text-left active"><label><b>&nbsp;&nbsp;&nbsp;8. GARANTÍA</b></label></td>
+                            </tr>
+                            <tr>
+                                <td class="col-md-4"><label>&nbsp;&nbsp;&nbsp;Meses de garantía:</label></td>
+                                <td class="col-md-9"><label>6</label></td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+    <div class="col-md-12">
+        <div>
+                <a class="btn btn-default" href="/InformeTecnico/IndexAdminiConsulta">Informes</a>
+                    </div>
+    </div>
+</div>
+
+<div class="modal fade" id="InfoOb" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header" style="background-color:#da2213;color:white;">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h2 class="modal-title">Observación</h2>
+            </div>
+            <div class="modal-body">
+                <div class="teeee">Please wait...</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="Anular" tabindex="-1" role="dialog"   data-backdrop="static" data-keyboard="false"   aria-labelledby="modalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header bg-success" style="color:white;">
+                <button data-dismiss="modal" class="close" type="button">
+                    <span aria-hidden="true">×</span>
+                    <span class="sr-only">Close</span>
+                </button>
+                <h2 class="modal-title">Aprobar Registro</h2>
+            </div>
+            <div class="modal-body">
+                <div class="text-left">
+                    <h3>¿Estas seguro de aprobar el registro seleccionado?</h3>
+                    <hr />
+                    <div class="form-group col-md-12">
+                        <div class="form-group col-md-3">
+                            <label class="control-label">% de Avance HES</label>
+                        </div>
+                        <div class="form-group col-md-9">
+                            <input class="form-control" id="hes" type="text" data-val="true" data-val-number="The field NUM_PORCE_HES must be a number." data-val-required="The NUM_PORCE_HES field is required." name="NUM_PORCE_HES" value="100.00" />
+                            <span class="text-danger field-validation-valid" data-valmsg-for="NUM_PORCE_HES" data-valmsg-replace="true"></span>
+                        </div>
+                    </div>
+                    </div>
+                    <div id="response" class="text-right">
+                    </div>
+                </div>
+        </div>
+    </div>
+</div>
+
+
+
+                    </main>
+                </div>
+
+                <footer class="border-top footer text-muted">
+                    <div class="container">
+                        &copy; 2020 - Myper SAC - v1.1.60
+                    </div>
+                </footer>
+
+            </div>
+        </div>
+
+    
+        <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
+        <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
+
+        <script src="/js/main.js"></script>
+        <script src="/lib/jquery/dist/jquery.js"></script>
+        <script src="/js/inspinia.js"></script>
+        <script src="/js/jquery-2.1.1.js"></script>
+        <script src="/js/jquery.metisMenu.js"></script>
+        <script src="/js/jquery.slimscroll.min.js"></script>
+        <script src="/js/bootstrap.min.js"></script>
+        <script src="/js/login.js"></script>
+        <script src="/js/all.js"></script>
+        <script src="/js/site.js?v=4q1jwFhaPaZgr8WAUSrux6hAuh0XDg9kPS3xIVq36I0"></script>
+        <script src="/js/jquery-barcode.js"></script>
+        <script src="/js/jspdf.min.js"></script>
+        <script type="text/javascript" src="http://jzaefferer.github.com/jquery-validation/jquery.validate.js"></script>
+        <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+        <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/buttons/1.6.1/js/dataTables.buttons.min.js"></script>
+        <script type="text/javascript" charset="utf8" src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+        <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/buttons/1.6.1/js/buttons.html5.min.js"></script>
+        <script type="text/javascript" src="https://cdn.datatables.net/rowgroup/1.1.1/js/dataTables.rowGroup.min.js"></script>
+        <script src="/js/Chart.js"></script>
+    
+    <script src="/NToastNotify/js/dist/toastr.js?v=202006260629"></script>
+<script>
+    if (nToastNotify) {
+        nToastNotify.init({
+            firstLoadEvent: 'DOMContentLoaded',
+            messages: undefined,
+            responseHeaderKey: 'X-NToastNotify-Messages',
+            requestHeaderKey: 'X-Requested-With',
+            libraryDetails:{"varName":"toastr","scriptSrc":"https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js","styleHref":"https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css","options":{"positionClass":"toast-bottom-right","progressBar":false,"title":"Mensaje","type":"success"}},
+            disableAjaxToasts:false
+        });
+    };
+</script>
+
+    
+<script>
+
+        $("body").on("click", "a.infoObser-dialog-window", null, function (e) {
+            e.preventDefault();
+            var $link = $(this);
+            var url = $(this).attr('href');
+            if (url.indexOf('#') == 0) {
+                $('#InfoOb').modal('show');
+            }
+            else {
+                $.get(url, function (data) {
+                    $('#InfoOb .teeee').html(data);
+                    $('#InfoOb').modal();
+                }).success(function () { $('input:text:visible:first').focus(); });
+            }
+        });
+
+
+
+        $("body").on("click", "a.aprobar-dialog-window", null, function (e) {
+                    $(".loading").remove();
+                    var htmlContent = '<br /><button type="button" id="btnNo" class="btn btn-success"  data-dismiss="modal" aria-hidden="true">No</button>&nbsp&nbsp<a onclick="Notificar('+$(this).data('id')+');" id="btnSi" class="btn btn-default">Si</a>';
+                    $("#response").html(htmlContent);
+                    $('#Anular').modal('show');
+        });
+
+        function Notificar(string) {
+        $('#response').after('<div class="loading form-group col-md-12 text-center"><img src=/images/loader.gif alt="loading" /><br/>Un momento, por favor...</div>');
+        $('#btnNo').hide();
+        $('#btnSi').hide();
+            var hess = $('#hes').val();
+            $('#hes').prop('disabled', true);
+        $.post('/InformeTecnico/Aprobar',
+            {
+                id: string,
+                hes: hess
+            },
+            function (returnedData) {
+                location.reload();
+        });
+        }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+body{
+    margin: 0;
+}
+
+      .grid {
+        display: grid;
+        height: 200px;
+        grid-template-columns: repeat(auto-fit, minmax(20px, 200px));
+        /*grid-template-columns:  minmax(20px, 50px) 1fr 1fr 1fr 1fr;*/
+        grid-template-rows: 3fr 3fr 3fr 3fr;
+        grid-gap: 5px;
+      }
+
+      .grid div {
+        background-color: red;
+        color: white;
+      }
+
+      .grid div:nth-child(even) {
+        background: green;
+      }
+
+      .grid div:nth-child(1)
+      {
+          justify-self: start; /*Alinea contenido al inicio*/
+          justify-self: end; /*Alinea contenido al final*/
+          justify-self: center; /*Alinea contenido al centro*/
+          justify-self: stretch; /*Alinea a todo el contenido*/
+
+          align-self: end; /*Lo manda al final*/
+          align-self: center; /*Lo manda al final*/
+          align-self: stretch; /*Lo manda al final*/
+
+      }
+
+      .grid div:nth-child(1){
+          /*grid-column-start: 1; /*Desde que linea contara*/
+          /*grid-column-end: span 3;
+
+          grid-row-start: 1;
+          grid-row-end: 6;
+          */
+      }
+      
+    </style>
+  </head>
+  <body>
+    <div class="grid">
+      <div>1</div>
+      <div>2</div>
+      <div>3</div>
+      <div>4</div>
+      <div>5</div>
+      <div>6</div>
+      <div>7</div>
+      <div>8</div>
+      <div>9</div>
+      <div>10</div>
+    </div>
+  </body>
+</html>
